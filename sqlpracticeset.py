@@ -150,6 +150,163 @@
 
 
 
+# use muneebd2;
+
+# create table employee2(
+# EmpID int not null,
+# name varchar(200),
+# Empzone varchar(250),
+# Empaddress varchar(200),
+# primary key(EmpID)
+# );
+
+
+
+# create table Department(
+# DeptID int not null,
+# DeptName varchar(200),
+# primary key (DeptID),
+# EmpID int,
+# location varchar(200),
+# foreign key(EmpID) references employee2(EmpID) on delete cascade on update cascade
+# );
+
+# alter table  products add column category varchar(200) ;
+# alter table  employee2 add column namee varchar(200);
+
+# drop table department;
+
+
+# desc Department;
+
+# select * from Department;
+
+# insert into Department(DeptID,DeptName,EmpID,location) values(104,"IT",4,"delhi");
+# insert into Department(DeptID,DeptName,EmpID,location) values(105,"IT",5,"bhopal");
+# insert into Department(DeptID,DeptName,EmpID,location) values(106,"IT",3,"agra");
+# insert into Department(DeptID,DeptName,EmpID,location) values(107,"IT",1,"munbai");
+# insert into Department(DeptID,DeptName,EmpID,location) values(108,"IT",6,"bhopal");
+
+# update Department set DeptName="marketing" where EmpID=3;
+# update Department set DeptName="marketing" where EmpID=1;
+# update Department set DeptName="finance" where EmpID=6;
+
+# set SQL_SAFE_UPDATES=0;
+
+# select * from employee2;
+
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(1,"muneeb","north","bhopal");
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(2,"rehman","north","delhi");
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(3,"abdul","west","mumbai");
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(4,"hamza","east","pune");
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(5,"saad","south","agra");
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(6,"ali","khan","bhopal");
+
+# -- left outer join
+
+
+# select DeptName,location,namee,Empaddress from department left outer join employee2 on (employee2.EmpID=Department.EmpID);
+
+# -- right outer join
+
+# select DeptName,location,namee,Empaddress from department right outer join employee2 on (employee2.EmpID=Department.EmpID);
+
+
+# -- equi join
+
+# select namee,Empaddress,DeptName from employee2,department where employee2.Empid=department.Empid and employee2.Empaddress=department.location;
+
+# -- group by
+
+# # write a querry to find the count of total no number employees works in deptname 
+
+# select deptname,count(*) as count from department group by deptname;
+ 
+ 
+# -- having clause
+
+# # ques write a name of employee where no of employee less then 2 work in department
+
+# select deptname from department group by deptname having count(*)<2; 
+
+# select namee from employee2,department where employee2.empID=department.EmpID and department.deptname="finance";
+
+
+
+# -- ------------------------------------- practice ques -----------------------------------
+
+# create table products(
+# product_ID int not null,
+# product_name varchar(250),
+# category varchar(200),
+# category varchar(200),
+# primary key (product_ID)
+# );
+
+# insert into products(product_ID,product_name,category,stock_quantity) values(24,"soap","kichen",50);
+# insert into products(product_ID,product_name,category,stock_quantity) values(25,"biscuit","kichen",100);
+# insert into products(product_ID,product_name,category,stock_quantity) values(26,"chairs","large_appliance",50);
+# insert into products(product_ID,product_name,category,stock_quantity) values(27,"computer","electronics",20);
+# insert into products(product_ID,product_name,category,stock_quantity) values(28,"led","electrical",40);
+# insert into products(product_ID,product_name,category,stock_quantity) values(29,"phone","electronics",100);
+
+# delete from products;
+
+# create table orders(
+# order_ID int not null,
+# product_ID int,
+# foreign key(product_ID) references products(product_ID)
+# );
+
+# alter table products add column stock_quantity int;
+
+# insert into orders(order_ID,product_ID,quantity_ordered) values(104,28,10);
+# insert into orders(order_ID,product_ID,quantity_ordered) values(146,25,80);
+# insert into orders(order_ID,product_ID,quantity_ordered) values(284,26,8);
+# insert into orders(order_ID,product_ID,quantity_ordered) values(105,28,2);
+
+# update products set stock_quantity=70 where product_ID=26;
+
+
+
+# set SQL_SAFE_UPDATES=0;
+
+
+# insert into employee2(EmpID,namee,Empzone,Empaddress) values(1,"muneeb","north","bhopal");
+
+# select * from products;
+
+# select * from orders;
+
+# -- ques list all product that belong to the electronics category
+
+# select * from products where category="electronics";
+
+
+# -- find product with the hightest quantity
+
+# select max(stock_quantity) from products;
+
+# -- find how many product are in stock for each cetogary
+
+# select product_name,stock_quantity from products where stock_quantity>0;
+
+# -- list of all products that have been ordered atlest onces
+
+# select product_name from products,orders where products.product_ID=orders.product_ID;
+
+
+# -- find the total number of orders for each product
+
+# select product_name,quantity_ordered from products left outer join orders on products.product_ID=orders.product_ID;
+
+
+
+
+
+
+
+
 
 
 
