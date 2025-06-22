@@ -80,7 +80,7 @@
 
 
 # cross product
-# jab bhi ek table ko dusre table se multiply karte he usi ko cross product
+# jab bhi ek table ko dusre table se multiply karte he usi ko cross product bolte he
 # select * from employee,Department;
 # isse employee hi har ek row Department ke saari rows ke saath aaygi
 
@@ -196,5 +196,10 @@
 # ye column ki value ko combine kar deta he agar value same hoto ek baar hi dikhata he
 # aur ye attribute left wali table ke hisab se rakhta he
 # no of column must be same in no
+
+
+# schema
+# table ke structure ko schema bolte he
+
 
 
